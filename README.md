@@ -1,5 +1,7 @@
-# Kel8_ProyekSBD
-Proyek kel8 basis data
+# Kelompok 8_Proyek Sistem Basis Data
+Proyek Kelompok 8 (Praktek) Sistem Basis Data
+
+Database Perpustakaan
 
 Reference:
 
