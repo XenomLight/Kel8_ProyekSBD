@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block TITLE %}
+Database Perpustakaan - Buku
+{% endblock %}
+
+{% block MAIN %}
+<p>Ini adalah view buku!</p> <br>
+<table>
+	<tr>
+		<th>Indeks</th>
+		<th>Judul</th>
+		<th>ISBN</th>
+		<th>Tahun Publikasi</th>
+		<th>Status Tersedia</th>
+		<th>Pengarang</th>
+		<th>Penerbit</th>
+		<th>Rak</th>
+	</tr>
+	{% for buku in tabel_buku %}
+	<tr>
+		<th>{{buku.Id}}</th>
+		<th>{{buku.Judul}}</th>
+		<th>{{buku.ISBN}}</th>
+		<th>{{buku.TahunPublikasi}}</th>
+		<th>{{buku.StatusTersedia}}</th>
+		<th>{{buku.IdPengarang}}</th>
+		<th>{{buku.IdPenerbit}}</th>
+		<th>{{buku.IdRak}}</th>
+	</tr>
+	{% endfor %}
+<table>
+{% endblock %}
