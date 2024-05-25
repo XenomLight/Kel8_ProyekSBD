@@ -1,0 +1,1 @@
+- Make executeable for all major platforms (Windows, Linux, MacOS)

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block TITLE %}
+Database Perpustakaan - Buku
+{% endblock %}
+
+{% block MAIN %}
+<p>Ini adalah view buku!</p> <br>
+<a href="/buku/tambah">Tambah Buku Baru</a>
+{% if buku_buku|length > 0 %}
+<table>
+	<tr>
+		<th>Indeks</th>
+		<th>Judul</th>
+		<th>ISBN</th>
+		<th>Tahun Publikasi</th>
+		<th>Status Tersedia</th>
+		<th>Pengarang</th>
+		<th>Penerbit</th>
+		<th>Rak</th>
+		<th>Action</th>
+	</tr>
+	{% for buku in buku_buku %}
+	<tr>
+		<th>{{buku.Id}}</th>
+		<th>{{buku.Judul}}</th>
+		<th>{{buku.ISBN}}</th>
+		<th>{{buku.TahunPublikasi}}</th>
+		<th>{{buku.StatusTersedia}}</th>
+		<th>{{buku.IdPengarang}}</th>
+		<th>{{buku.IdPenerbit}}</th>
+		<th>{{buku.IdRak}}</th>
+		<th>
+			<a href="/buku/hapus/{{buku.Id}}">Hapus</a>
+			<a href="/buku/perbarui/{{buku.Id}}">Perbarui</a>
+		</th>
+	</tr>
+	{% endfor %}
+<table>
+{% else %}
+<p>Belum ada buku! Tambah buku baru dengan tombol di atas!</p>
+{% endif %}
+{% endblock %}
