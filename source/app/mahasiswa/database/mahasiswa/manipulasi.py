@@ -1,5 +1,5 @@
-from ..database import database
-from ..definisi.mahasiswa import Mahasiswa
+from app.extensions import database
+from app.mahasiswa.database.mahasiswa.definisi import Mahasiswa
 
 
 def add(NIM, NamaLengkap, Email, NomorTelepon):

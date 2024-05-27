@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{if loggedin}
+{% block TITLE %}
+Database Perpustakaan - Profile
+{% endblock %}
+
+{% block MAIN %}
+<div class="pagetitle">
+    <h1>Pinjam Buku</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+		<li class="breadcrumb-item">Pinjam</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+  <div class="card">
+    <div class="card-body pt-3">
+      <ul class="nav nav-tabs nav-tabs-bordered">
+
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+        </li>
+
+      </ul>
+{% endblock %}
+
+{else logged in}

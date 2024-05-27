@@ -5,7 +5,15 @@ Database Perpustakaan - Buku
 {% endblock %}
 
 {% block MAIN %}
-<p>Ini adalah view buku!</p> <br>
+<div class="pagetitle">
+    <h1>Lihat Buku</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+		<li class="breadcrumb-item">Buku</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
 <a href="/buku/tambah">Tambah Buku Baru</a>
 {% if buku_buku|length > 0 %}
 <table>

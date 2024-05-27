@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{if loggedin}
+{% block TITLE %}
+Database Perpustakaan - Profile
+{% endblock %}
+
+{% block MAIN %}
+<div class="pagetitle">
+    <h1>Pinjam Buku</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+		<li class="breadcrumb-item">Profile</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+              <img src="static/img/s.jpg" alt="Profile" class="rounded-circle">
+              <h2>Nama</h2>
+              <h3>NIM</h3>
+              </div>
+            </div>
+          </div>
+
+        </div>
+{% endblock %}
+
+{else logged in}
