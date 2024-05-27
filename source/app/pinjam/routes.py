@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-NAMA_TEMPLATE_VIEW_PINJAMAN: str = "view/pinjam/index.html"
+NAMA_TEMPLATE_VIEW_PINJAMAN: str = "view_pinjam.html"
 
 view_pinjam_blueprint = Blueprint("view_pinjam", __name__, template_folder="templates")
 

@@ -14,4 +14,4 @@ class Buku(database.Model):
 	IdRak = database.Column(database.Integer, database.ForeignKey('Rak.Id'))#, nullable=False)
 
 	def __repr__(self):
-		return f"<Buku {Buku.Id}>"
+		return f"<Buku {self.Id}>"

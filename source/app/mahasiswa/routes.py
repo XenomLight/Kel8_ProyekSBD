@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-NAMA_TEMPLATE_VIEW_MAHASISWA: str = "view/mahasiswa/index.html"
+NAMA_TEMPLATE_VIEW_MAHASISWA: str = "view_mahasiswa.html"
 
 view_mahasiswa_blueprint = Blueprint("view_mahasiswa", __name__, template_folder="templates")
 
