@@ -12,12 +12,13 @@ def check_session():
     if 'NIM' not in session and request.endpoint != 'login.login' and request.endpoint != 'login.register':
         flash('Please log in to access this page.', 'warning')
         return redirect(url_for('login.login'))
-    elif 'NIM' in session and request.endpoint == 'login.login':
-        return redirect(url_for('profile'))
+
     
 @view_profile_blueprint.route("/profile")
 def view_profile():
-    return render_template(NAMA_TEMPLATE_VIEW_PROFILE)
+    if 'NIM' in session:
+        user = Mahasiswa.query.filter_by(NIM=session['NIM']).first()
+    return render_template(NAMA_TEMPLATE_VIEW_PROFILE, user=user)
 
 
 

@@ -22,9 +22,9 @@ def validasi_akun(NNIM,ppassword):
     user = data.query.filter_by(NIM = NNIM).first()
     if user:
         if user.password == ppassword:
-            session['usernim'] = user.NIM
+            session['NIM'] = user.NIM
             flash('Login successful!', 'success')
-            return redirect(url_for('profile'))
+            return redirect(url_for('view_profile.view_profile'))
         else:
             flash('Incorrect password. Please try again.', 'danger')
     else:
