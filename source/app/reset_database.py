@@ -4,7 +4,6 @@
 from app.extensions import database
 
 from app.buku.database.buku.definisi import Buku
-from app.buku.database.dikategorikan.definisi import Dikategorikan
 from app.buku.database.kategori_buku.definisi import KategoriBuku
 from app.buku.database.pengarang.definisi import Pengarang
 from app.buku.database.penerbit.definisi import Penerbit

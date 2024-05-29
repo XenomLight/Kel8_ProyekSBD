@@ -1,35 +1,118 @@
-.side_navigation {
-	height: 100%;
-	width: 160px;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: #111;
-	overflow-x: hidden;
-	padding-top: 20px;
+.generic-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #007BFF;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-.side_navigation a {
-	padding: 6px 8px 6px 16px;
-	text-decoration: none;
-	font-size: 25px;
-	color: #818181;
-	display: block;
+.generic-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
 }
 
-.side_navigation a:hover {
-	color: #f1f1f1;
+.generic-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
 }
 
-@media screen and (max-height: 450px) {
-	.side_navigation {
-		padding-top: 15px;
-	}
-	.side_navigation a {
-		font-size: 18px;
-	}
+.generic-table th, 
+.generic-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
+
+.generic-table th {
+    background-color: #f4f4f4;
+}
+
+.generic-table tr:last-child td {
+    border-bottom: none;
+}
+
+.generic-table th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.generic-table th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.generic-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.generic-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.generic-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.generic-form h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.generic-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.generic-form input[type="text"],
+.generic-form input[type="checkbox"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.generic-form input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.generic-form input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.generic-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.generic-form br {
+    display: none;
+}
+
 
 
 /**

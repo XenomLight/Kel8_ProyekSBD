@@ -10,4 +10,4 @@ class Rak(database.Model):
 	Kapasitas = database.Column(database.Integer, nullable=False)
 
 	def __repr__(self):
-		return f"<Rak {Rak.Id}>"
+		return f"<Rak {{Rak.Id}}>"

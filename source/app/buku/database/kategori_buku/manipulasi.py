@@ -2,7 +2,7 @@ from app.extensions import database
 from app.buku.database.kategori_buku.definisi import KategoriBuku
 
 
-def add(Jenis):
+def tambah(Jenis):
 	new_kategori_buku = KategoriBuku(
 		Jenis=Jenis
 	)
@@ -11,7 +11,7 @@ def add(Jenis):
 	return new_kategori_buku
 
 
-def remove(Id):
+def hapus(Id):
 	kategori_buku = KategoriBuku.query.get(Id)
 	if not kategori_buku:
 		return False
@@ -21,7 +21,7 @@ def remove(Id):
 	return True
 
 
-def update(Id, Jenis=None):
+def perbarui(Id, Jenis=None):
 	kategori_buku = KategoriBuku.query.get(Id)
 	if not kategori_buku:
 		return None

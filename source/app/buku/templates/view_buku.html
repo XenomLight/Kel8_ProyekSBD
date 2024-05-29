@@ -14,9 +14,9 @@ Database Perpustakaan - Buku
       </ol>
     </nav>
   </div><!-- End Page Title -->
-<a href="/buku/tambah">Tambah Buku Baru</a>
+<a class="btn btn-primary w-100" href="/buku/tambah">Tambah Buku Baru</a>
 {% if buku_buku|length > 0 %}
-<table>
+<table class="generic-table">
 	<tr>
 		<th>Indeks</th>
 		<th>Judul</th>
@@ -46,6 +46,6 @@ Database Perpustakaan - Buku
 	{% endfor %}
 <table>
 {% else %}
-<p>Belum ada buku! Tambah buku baru dengan tombol di atas!</p>
+<p class="text-center">Belum ada buku! Tambah buku baru dengan tombol di atas!</p>
 {% endif %}
 {% endblock %}

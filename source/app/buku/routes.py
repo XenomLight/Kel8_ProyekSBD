@@ -1,16 +1,9 @@
 from flask import Blueprint, render_template, request, redirect
 
-from app.buku.database.buku.definisi import Buku
-from app.buku.database.dikategorikan.definisi import Dikategorikan
-from app.buku.database.kategori_buku.definisi import KategoriBuku
-from app.buku.database.penerbit.definisi import Penerbit
-from app.buku.database.pengarang.definisi import Pengarang
-from app.buku.database.rak.definisi import Rak
-
 from app.buku.database import manipulasi as manipulasi_database_buku
 
-NAMA_TEMPLATE_VIEW_SEMUA_BUKU: str = "view_semua_buku.html"
-NAMA_TEMPLATE_VIEW_SATU_BUKU: str = "view_satu_buku.html"
+NAMA_TEMPLATE_VIEW_SEMUA_BUKU: str = "view_buku.html"
+NAMA_TEMPLATE_EDIT_BUKU: str = "edit_buku.html"
 NAMA_TEMPLATE_TAMBAH_BUKU: str = "tambah_buku.html"
 NAMA_TEMPLATE_PERBARUI_BUKU: str = "perbarui_buku.html"
 NAMA_TEMPLATE_HAPUS_BUKU: str = "hapus_buku.html"
@@ -19,15 +12,9 @@ view_buku_blueprint = Blueprint("view_buku", __name__, template_folder="template
 
 
 @view_buku_blueprint.route("/buku", methods=["GET"])
-def view_buku_semua():
+def view_buku():
 	buku_view_semua = manipulasi_database_buku.select_semua_buku_dari_view_buku()
 	return render_template(NAMA_TEMPLATE_VIEW_SEMUA_BUKU, buku_buku=buku_view_semua)
-
-
-@view_buku_blueprint.route("/buku/<int:Id>", methods=["GET"])
-def view_buku_satu(Id):
-	buku_view_satu = manipulasi_database_buku.select_satu_buku_dari_view_buku(Id)
-	return render_template(NAMA_TEMPLATE_VIEW_SATU_BUKU, buku=buku_view_satu)
 
 
 @view_buku_blueprint.route("/buku/tambah", methods=["POST", "GET"])
@@ -36,7 +23,16 @@ def tambah_buku():
 		manipulasi_database_buku.tambah_buku_dari_route(request.form)
 		return redirect("/buku")
 
-	return render_template(NAMA_TEMPLATE_TAMBAH_BUKU)
+	return render_template(
+		NAMA_TEMPLATE_EDIT_BUKU,
+		action='Tambah',
+		form_action='/buku/tambah',
+		buku={},
+		pengarang={},
+		penerbit={},
+		rak={},
+		kategoriBuku={}
+	)
 
 
 @view_buku_blueprint.route("/buku/perbarui/<int:Id>", methods=["POST", "GET"])
@@ -45,12 +41,21 @@ def perbarui_buku(Id):
 		manipulasi_database_buku.perbarui_buku_dari_route(Id, request.form)
 		return redirect("/buku")
 
-	buku = manipulasi_database_buku.select_satu_buku_dari_view_buku(Id)
-	return render_template(NAMA_TEMPLATE_PERBARUI_BUKU)
+	buku, kategoriBuku, penerbit, pengarang, rak = manipulasi_database_buku.get_buku_dengan_tabel_berrelasi(Id)
+	return render_template(
+		NAMA_TEMPLATE_EDIT_BUKU,
+		action='Perbarui',
+		form_action='/buku/perbarui/' + str(Id),
+		buku=buku,
+		pengarang=pengarang,
+		penerbit=penerbit,
+		rak=rak,
+		kategoriBuku=kategoriBuku
+	)
 
 
 @view_buku_blueprint.route("/buku/hapus/<int:Id>", methods=["POST", "GET"])
 def hapus_buku(Id):
-	manipulasi_database_buku.hapus_buku_dari_route(Id, request.form)
+	manipulasi_database_buku.hapus_buku_dari_route(Id)
 	return redirect("/buku")
 

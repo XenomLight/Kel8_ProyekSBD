@@ -2,7 +2,7 @@ from app.extensions import database
 from app.buku.database.buku.definisi import Buku
 
 
-def tambah(Judul, ISBN, TahunPublikasi, StatusTersedia, IdPengarang, IdPenerbit, IdRak):
+def tambah(Judul, ISBN, TahunPublikasi, StatusTersedia, IdKategoriBuku, IdPengarang, IdPenerbit, IdRak):
 	new_buku = Buku(
 		Judul=Judul,
 		ISBN=ISBN,
@@ -10,7 +10,8 @@ def tambah(Judul, ISBN, TahunPublikasi, StatusTersedia, IdPengarang, IdPenerbit,
 		StatusTersedia=StatusTersedia,
 		IdPengarang=IdPengarang,
 		IdPenerbit=IdPenerbit,
-		IdRak=IdRak
+		IdRak=IdRak,
+		IdKategoriBuku=IdKategoriBuku
 	)
 	database.session.add(new_buku)
 	database.session.commit()
@@ -27,7 +28,7 @@ def hapus(Id):
 	return True
 
 
-def perbarui(Id, Judul=None, ISBN=None, TahunPublikasi=None, StatusTersedia=None, IdPengarang=None, IdPenerbit=None, IdRak=None):
+def perbarui(Id, Judul=None, ISBN=None, TahunPublikasi=None, StatusTersedia=None, IdKategoriBuku=None, IdPenerbit=None, IdPengarang=None, IdRak=None):
 	buku = Buku.query.get(Id)
 	if not buku:
 		return None
@@ -40,10 +41,12 @@ def perbarui(Id, Judul=None, ISBN=None, TahunPublikasi=None, StatusTersedia=None
 		buku.TahunPublikasi = TahunPublikasi
 	if StatusTersedia is not None:
 		buku.StatusTersedia = StatusTersedia
-	if IdPengarang is not None:
-		buku.IdPengarang = IdPengarang
+	if IdKategoriBuku is not None:
+		buku.IdKategoriBuku = IdKategoriBuku
 	if IdPenerbit is not None:
 		buku.IdPenerbit = IdPenerbit
+	if IdPengarang is not None:
+		buku.IdPengarang = IdPengarang
 	if IdRak is not None:
 		buku.IdRak = IdRak
 

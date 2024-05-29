@@ -12,6 +12,7 @@ class Buku(database.Model):
 	IdPengarang = database.Column(database.Integer, database.ForeignKey('Pengarang.Id'))
 	IdPenerbit = database.Column(database.Integer, database.ForeignKey('Penerbit.Id'))
 	IdRak = database.Column(database.Integer, database.ForeignKey('Rak.Id'))#, nullable=False)
+	IdKategoriBuku = database.Column(database.Integer, database.ForeignKey('KategoriBuku.Id'))
 
 	def __repr__(self):
 		return f"<Buku {self.Id}>"

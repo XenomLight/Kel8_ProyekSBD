@@ -3,6 +3,7 @@ from app.buku.database.pengarang.definisi import Pengarang
 
 
 def tambah(Nama, Nasionalitas, TanggalLahir):
+	print("PENGARANG:", Nama, Nasionalitas, TanggalLahir)
 	new_pengarang = Pengarang(
 		Nama=Nama,
 		Nasionalitas=Nasionalitas,

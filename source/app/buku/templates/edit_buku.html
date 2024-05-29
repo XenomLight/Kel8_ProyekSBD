@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block MAIN %}
+<h1> {{ action }} Buku </h1>
+<form class="generic-form" action="{{ form_action }}" method="POST">
+    <h2>Buku</h2>
+    <label for="Judul">Judul</label>
+    <input type="text" id="Judul" name="Judul" value="{{ buku.Judul }}"><br>
+
+    <label for="ISBN">ISBN</label>
+    <input type="text" id="ISBN" name="ISBN" value="{{ buku.ISBN }}"><br>
+
+    <label for="TahunPublikasi">Tahun Publikasi</label>
+    <input type="text" id="TahunPublikasi" name="TahunPublikasi" value="{{ buku.TahunPublikasi }}"><br>
+
+    <label for="StatusTersedia">Status Tersedia</label>
+    <input type="checkbox" id="StatusTersedia" name="StatusTersedia" {{ 'checked' if buku.StatusTersedia else '' }}><br>
+
+    <h2>Pengarang</h2>
+    <label for="PengarangNama">Nama</label>
+    <input type="text" id="PengarangNama" name="PengarangNama" value="{{ pengarang.Nama }}"><br>
+
+    <label for="PengarangNasionalitas">Nasionalitas</label>
+    <input type="text" id="PengarangNasionalitas" name="PengarangNasionalitas" value="{{ pengarang.Nasionalitas }}"><br>
+
+    <label for="PengarangTanggalLahir">Tanggal Lahir</label>
+    <input type="date" id="PengarangTanggalLahir" name="PengarangTanggalLahir" value="{{ pengarang.TanggalLahir }}"><br>
+
+    <h2>Penerbit</h2>
+    <label for="PenerbitNama">Nama</label>
+    <input type="text" id="PenerbitNama" name="PenerbitNama" value="{{ penerbit.Nama }}"><br>
+
+    <label for="PenerbitLokasiMarkas">Lokasi Markas</label>
+    <input type="text" id="PenerbitLokasiMarkas" name="PenerbitLokasiMarkas" value="{{ penerbit.LokasiMarkas }}"><br>
+
+    <label for="PenerbitTahunPendirian">Tahun Pendirian</label>
+    <input type="text" id="PenerbitTahunPendirian" name="PenerbitTahunPendirian" value="{{ penerbit.TahunPendirian }}"><br>
+
+    <h2>Rak</h2>
+    <label for="RakId">Id</label>
+    <input type="text" id="RakId" name="RakId" value="{{ rak.Id }}"><br>
+
+    <label for="RakLantaiNomor">Lantai</label>
+    <input type="text" id="RakLantaiNomor" name="RakLantaiNomor" value="{{ rak.LantaiNomor }}"><br>
+
+    <label for="RakBagian">Bagian</label>
+    <input type="text" id="RakBagian" name="RakBagian" value="{{ rak.Bagian }}"><br>
+
+    <label for="RakKapasitas">Kapasitas</label>
+    <input type="text" id="RakKapasitas" name="RakKapasitas" value="{{ rak.Kapasitas }}"><br>
+
+    <h2>Kategori Buku</h2>
+    <label for="KategoriBukuJenis">Jenis</label>
+    <input type="text" id="KategoriJenis" name="KategoriBukuJenis" value="{{ kategoriBuku.Jenis }}"><br>
+
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

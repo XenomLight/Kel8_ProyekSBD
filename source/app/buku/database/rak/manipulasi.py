@@ -2,12 +2,14 @@ from app.extensions import database
 from app.buku.database.rak.definisi import Rak
 
 
-def tambah(LantaiNomor, Bagian, Kapasitas):
+def tambah(Id, LantaiNomor, Bagian, Kapasitas):
 	new_rak = Rak(
 		LantaiNomor=LantaiNomor,
 		Bagian=Bagian,
 		Kapasitas=Kapasitas
 	)
+	print(new_rak)
+
 	database.session.add(new_rak)
 	database.session.commit()
 	return new_rak
