@@ -50,33 +50,25 @@
                     <p class="text-center small">E-Library Register </p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" novalidate action="{{ url_for('register.register') }}" method="POST" id="registrationForm">
+
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Nama</label>
-                      <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Masukkan username</div>
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <label for="yourUsername" class="form-label">NIM</label>
+                      <label for="NIM" class="form-label">NIM</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" name="NIM" class="form-control" id="NIM" required>
                         <div class="invalid-feedback">Masukkan NIM</div>
                       </div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="password" required>
                       <div class="invalid-feedback">Masukkan Password</div>
                     </div>
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Ulangi Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Password Tidak Sama</div>
+
+                    
                     </div>
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Register</button>

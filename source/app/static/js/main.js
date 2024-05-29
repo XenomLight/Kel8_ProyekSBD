@@ -316,4 +316,20 @@
     }, 200);
   }
 
+  document.getElementById('password').addEventListener('input', function () {
+    var password = document.getElementById('password');
+    var confirm_password = document.getElementById('confirm_password');
+    var password_match = document.getElementById('password_match');
+
+    if (password.value != confirm_password.value) {
+      confirm_password.setCustomValidity('Password Tidak Sama');
+      password_match.style.display = 'block';
+    } else {
+      confirm_password.setCustomValidity('');
+      password_match.style.display = 'none';
+    }
+  });
+
+
+
 })();
