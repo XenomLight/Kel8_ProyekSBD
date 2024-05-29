@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block TITLE %}
+Database Perpustakaan - Buku
+{% endblock %}
+
+{% block MAIN %}
+<div class="pagetitle">
+    <h1>Lihat Mahasiswa</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+		<li class="breadcrumb-item">Mahasiswa</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+  {% if cek_jml_mhs|length > 0 %}
+  <table class="generic-table">
+    <tr>
+      <th>NIM</th>
+      <th>Nama</th>
+      <th>Email</th>
+      <th>Nomor Telepon</th>
+      <th>Action</th>
+    </tr>
+    {% for Mahasiswa in cek_jml_mhs %}
+    <tr>
+      <th>{{Mahasiswa.NIM}}</th>
+      <th>{{Mahasiswa.NamaLengkap}}</th>
+      <th>{{Mahasiswa.email}}</th>
+      <th>{{Mahasiswa.NomorTelepon}}</th>
+      <th>
+        <a href="/mahasiswa/hapus/{{Mahasiswa.NIM}}">Hapus</a>
+        <a href="/mahasiswa/perbarui/{{Mahasiswa,NIM}}">Perbarui</a>
+      </th>
+    </tr>
+    {% endfor %}
+  <table>
+  {% else %}
+  <p class="text-center">Belum ada Mahasiswa! Tambah Mahasiswa baru dengan tombol di atas!</p>
+  {% endif %}
+{% endblock %}
