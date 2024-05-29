@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block MAIN %}
+<h1> {{ action }} Peminjaman </h1>
+<form class="generic-form" action="{{ form_action }}" method="POST">
+    <h2>Pinjaman Buku</h2>
+    <label for="Id">ID</label>
+    <input type="text" id="Id" name="Id" value="{{ Pinjam.Id }}"><br>
+
+    <label for="IdBuku">ID Buku</label>
+    <input type="text" id="IdBuku" name="IdBuku" value="{{ Pinjam.IdBuku }}"><br>
+
+    <label for="NIM">NIM</label>
+    <input type="text" id="NIM" name="NIM" value="{{ Pinjam.NIM }}"><br>
+
+    <label for="TanggalPeminjaman">Tanggal Peminjaman</label>
+    <input type="date" id="TanggalPeminjaman" name="TanggalPeminjaman" value="{{ Pinjam.TanggalPeminjaman }}"><br>
+
+    <label for="TanggalPengembalian">Tanggal Pengembalian</label>
+    <input type="date" id="TanggalPengembalian" name="TanggalPengembalian" value="{{ Pinjam.TanggalPengembalian }}"><br>
+
+    <label for="Status">Status</label>
+    <select id="Status" name="Status">
+        <option value="Aktif" {% if Pinjam.Status == 'Aktif' %}selected{% endif %}>Aktif</option>
+        <option value="Selesai" {% if Pinjam.Status == 'Selesai' %}selected{% endif %}>Selesai</option>
+        <option value="Melewati Tenggat" {% if Pinjam.Status == 'Melewati Tenggat' %}selected{% endif %}>Melewati Tenggat</option>
+    </select><br>
+
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

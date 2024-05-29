@@ -6,7 +6,7 @@ Database Perpustakaan - Pinjaman
 
 {% block MAIN %}
 <div class="pagetitle">
-    <h1>Pinjam Buku</h1>
+    <h1>Pinjaman Buku</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -14,4 +14,35 @@ Database Perpustakaan - Pinjaman
       </ol>
     </nav>
   </div><!-- End Page Title -->
+  <a class="btn btn-primary w-100" href="/pinjaman/tambah">Tambah pinjam Baru</a>
+
+  {% if sl|length > 0 %}
+  <table class="generic-table">
+    <tr>
+      <th>ID</th>
+      <th>ID Buku</th>
+      <th>NIM</th>
+      <th>Tanggal Peminjaman</th>
+      <th>Tanggal Pengembalian</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    {% for Pinjam in sl %}
+    <tr>
+      <th>{{ Pinjam.Id }}</th>
+      <th>{{ Pinjam.IdBuku }}</th>
+      <th>{{ Pinjam.NIM }}</th>
+      <th>{{ Pinjam.TanggalPeminjaman }}</th>
+      <th>{{ Pinjam.TanggalPengembalian }}</th>
+      <th>{{ Pinjam.Status }}</th>
+      <th>
+        <a href="/pinjaman/hapus/{{Pinjam.NIM}}">Hapus</a>
+        <a href="/pinjaman/perbarui/{{Pinjam.NIM}}">Perbarui</a>
+      </th>
+    </tr>
+    {% endfor %}
+  <table>
+  {% else %}
+  <p class="text-center">Belum ada pinjam! Tambah pinjam baru dengan tombol di atas!</p>
+  {% endif %}
 {% endblock %}
