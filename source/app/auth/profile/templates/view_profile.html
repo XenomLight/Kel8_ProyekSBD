@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {if loggedin}
@@ -24,8 +25,13 @@ Database Perpustakaan - Profile
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="static/img/s.jpg" alt="Profile" class="rounded-circle">
-              <h2>Nama</h2>
-              <h3>NIM</h3>
+              {% if user %}
+              <h2>{{user.NamaLengkap}}  </h2>
+              <h3>{{user.NIM}}</h3>
+              {% else %}
+              <h2>Guest</h2>
+              <h3>Login to view</h3>
+              {% endif %}
               </div>
             </div>
           </div>

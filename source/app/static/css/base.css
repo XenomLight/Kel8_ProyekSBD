@@ -22,11 +22,6 @@
 	color: #f1f1f1;
 }
 
-.main {
-	margin-left: 160px;
-	padding: 0px 10px;
-}
-
 @media screen and (max-height: 450px) {
 	.side_navigation {
 		padding-top: 15px;
