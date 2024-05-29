@@ -2,7 +2,7 @@ from flask import Blueprint, render_template,redirect,request
 from app.mahasiswa.database.mahasiswa import manipulasi as manipulasi
 from app.mahasiswa.database.mahasiswa.definisi import Mahasiswa
 NAMA_TEMPLATE_VIEW_MAHASISWA: str = "view_mahasiswa.html"
-NAMA_TEMPLATE_TAMBAH_MAHASISWA: str = "edit_mahasiswa.html"
+NAMA_TEMPLATE_EDIT_MAHASISWA: str = "edit_mahasiswa.html"
 
 view_mahasiswa_blueprint = Blueprint("view_mahasiswa", __name__, template_folder="templates")
 
@@ -17,12 +17,14 @@ def tambah_mahasiswa():
 	if request.method == "POST":
 		manipulasi.add(request.form)
 		return redirect("/mahasiswa")
+
 	return render_template(
-		NAMA_TEMPLATE_TAMBAH_MAHASISWA,
+		NAMA_TEMPLATE_EDIT_MAHASISWA,
 		action='Tambah',
 		form_action='/mahasiswa/tambah',
-		Mahasiswa={}
+		mahasiswa={}
 	)
+
 
 @view_mahasiswa_blueprint.route("/mahasiswa/perbarui/<int:Id>", methods=["POST", "GET"])
 def update(Id):
@@ -31,15 +33,17 @@ def update(Id):
         return "Mahasiswa not found", 404
 
     if request.method == "POST":
-        manipulasi.update(Id, request.form)
+        manipulasi.update(request.form["NIM"], request.form["NamaLengkap"], request.form["Email"], request.form["NomorTelepon"])
         return redirect("/mahasiswa")
     
     return render_template(
-        NAMA_TEMPLATE_TAMBAH_MAHASISWA,
+        NAMA_TEMPLATE_EDIT_MAHASISWA,
         action='Perbarui',
         form_action='/mahasiswa/perbarui/' + str(Id),
         mahasiswa=mahasiswa
     )
+
+
 @view_mahasiswa_blueprint.route("/mahasiswa/hapus/<int:Id>", methods=["POST", "GET"])
 def hapus_mahasiswa(Id):
     manipulasi.remove(Id)
